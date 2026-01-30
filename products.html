@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABDULL</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="img" href="blc and white.jpeg">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* =========================
+   CART PAGE CONTAINER
+========================= */
+.cart-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa, #e4e8ee);
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.cartlink {
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh; 
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+}
+
+/* animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* =========================
+   CART HEADER
+========================= */
+.carttitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+}
+
+.carttitle h2 {
+  font-size: 1.6rem;
+  color: #232f3e;
+}
+
+#closeCart {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#closeCart:hover {
+  background: #e60000;
+}
+
+/* =========================
+   CART ITEMS
+========================= */
+#cart-items {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  max-height: 55vh;
+  overflow-y: auto;
+  margin: 60px;
+
+}
+
+.cart-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+/* product info */
+.cart-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.cart-info p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* =========================
+   QUANTITY CONTROLS
+========================= */
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.qty-controls button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  background: #232f3e;
+  color: #fff;
+}
+
+.qty-controls button:hover {
+  background: #000;
+}
+
+.qty-controls span {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* =========================
+   REMOVE BUTTON
+========================= */
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: #ff4d4d;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   CART FOOTER
+========================= */
+.cart-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+   position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.cart-footer h3 {
+  font-size: 1.3rem;
+  color: #111;
+}
+
+/* =========================
+   RESPONSIVE (MOBILE)
+========================= */
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .cart-footer {
+    justify-content: center;
+  }
+}
+/* SCROLLBAR DESIGN */
+#cart-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+#cart-items::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+  background: #232f3e;
+  border-radius: 10px;
+}
+
+#cart-items::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+.cart-welcome {
+  background: linear-gradient(135deg, #232f3e, #3a4b63);
+  color: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  margin: 50px;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.cart-welcome h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.cart-welcome p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+
+    </style>
+</head>
+<body>
+  <!-- <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">ABDULL</a>
+            
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search for products, brands and more...">
+                 <a  class="text-2xl" href=""><i class="fa-solid fa-cart-arrow-down"><span id="cartCounter" class="text-sm">0</span></i></a> 
+            </div>
+            </div>
+        </div>
+    </header> -->
+  <header class="header">
+    <div class="header-container">
+
+        <!-- Logo (Left) -->
+        <a href="index.html" class="logo">ABDULL</a>
+
+        <!-- Search (Center) -->
+        <div class="search-container">
+            <input
+                type="text"
+                class="search-bar bg-white text-black"
+                placeholder="Search for products, brands and more..."
+            >
+        </div>
+
+        <!-- Cart (Right) -->
+        <a href="#cartpage" class="cart-link">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            <span id="cartCounter" class="cart-counter">0</span>
+        </a>
+
+    </div>
+</header>
+
+
+    <nav class="nav-menu">
+        <div class="nav-container">
+            <ul class="nav-links">
+               <li><a href="index.html">HOME</a></li>
+               <li><a style="background-color:  lightseagreen;"  href="products.html">Products</a></li>
+               <li><a href="about.html">About</a></li>
+               <li><a href="contacts.html">Contact</a></li>
+               <!-- <li><a href="reviews.html">Reviews</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+ <h1 style="text-align:center; margin:40px 0; color:#232f3e;">
+    All Products
+  </h1>
+
+  <!-- ALL PRODUCTS -->
+  <div class="products-grid">
+
+    <div class="product-card">
+      <img class="product-image" src="tshirt.jpg" alt="">
+      <div class="product-title">Gray tshirt for women</div>
+      <div class="product-price">$19.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="sidebox.jpg" alt="">
+      <div class="product-title">Men's casual sidebox pants</div>
+      <div class="product-price">$24.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="joggers.jpg" alt="">
+      <div class="product-title">Joggers for women</div>
+      <div class="product-price">$49.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="underarmour.jpg" alt="">
+      <div class="product-title">Underarmour Tshirt</div>
+      <div class="product-price">$24.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="hat.jpg" alt="">
+      <div class="product-title">Underarmour Hat</div>
+      <div class="product-price">$19.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="socks.jpg" alt="">
+      <div class="product-title">Socks</div>
+      <div class="product-price">$14.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="fit.jpg" alt="">
+      <div class="product-title">Workout top fit</div>
+      <div class="product-price">$19.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="v neck.jpg" alt="">
+      <div class="product-title">V neck work chiffon</div>
+      <div class="product-price">$26.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+  </div>
+
+  <div class="cart-welcome">
+  <h1>Welcome to the Cart Page 🛒</h1>
+  <p>
+    Review your selected items, adjust quantities, and get ready to checkout.
+    You’re just one step away from completing your order!
+  </p>
+</div>
+
+
+
+  
+<section class="cart-section" id="cart-section">
+  <div class="cartpage" id="cartpage">
+    <div class="carttitle">
+      <h2>🛒 Your Cart</h2>
+      <button id="closeCart">✖</button>
+    </div>
+    
+
+    <div id="cart-items"></div>
+
+    <div class="cart-footer">
+      <h3>Total: <span id="cart-total">$0.00</span></h3>
+    </div>
+  </div>
+</section>
+
+
+
+
+    </div>
+    </div>
+  
+        
+        <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy policy</a>
+                <a href="helpcentre.html">Help center</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 ABDULL. All rights reserved. | Design from FIGMA</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
