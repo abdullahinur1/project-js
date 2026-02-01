@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>ABDULL</title>
     <link rel="stylesheet" href="main.css">
     <link rel="icon" type="img" href="blc and white.jpeg">
 </head>
 <body>
-  <header class="header">
-        <div class="header-container">
-            <a href="index.html" class="logo">ABDULL</a>
-            
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search for products, brands and more...">
-            </div>
-        </div>
-    </header>
+    <style>
+        html, body {
+        margin: 0;
+        height: 100%;
+        background-color: #6b7c92;
+        font-family: smooch sans;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        }
+    </style>
+     <nav class="nav">
+      <div class="nav-container">
+        <a href="index.html" class="logo">𝔸bdul</a>
 
-    <nav class="nav-menu">
-        <div class="nav-container">
-            <ul class="nav-links">
-               <li><a href="index.html">HOME</a></li>
-               <li><a href="products.html">Products</a></li>
-               <li><a style="background-color:  lightseagreen;" href="about.html">About</a></li>
-               <li><a href="contacts.html">Contact</a></li>
-               <!-- <li><a href="reviews.html">Reviews</a></li> -->
-            </ul>
+         <div class="">
+            <input
+                type="text"
+                class="w-100 border border:white text-white h-10 rounded-xl label"
+                placeholder="Search for products"
+            >
         </div>
+
+
+        
+       <div class="nav-links">
+          <a href="index.html">HOME</a>
+          <a href="about.html">about-me</a>
+          <a href="contacts.html">Contact</a>
+        </div>
+         <a href="#cartpage" class="cart-link">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            <span id="cartCounter" class="cart-counter">0</span>
+        </a>
+      </div>
+     
     </nav>
 
   <section id="about" class="page-section">

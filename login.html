@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>ABDULL</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="img" href="blc and white.jpeg">
+</head>
+<body>
+     <nav class="nav">
+      <div class="nav-container">
+        <a href="index.html" class="logo">𝔸bdul</a>
+
+         <div class="">
+            <input
+                type="text"
+                class="w-100 border border:white text-white h-10 rounded-xl label"
+                placeholder="Search for products"
+            >
+        </div>
+
+
+       
+       <div class="nav-links">
+          <a href="index.html">HOME</a>
+          <a href="about.html">about-me</a>
+          <a href="contacts.html">Contact</a>
+        </div>
+         <a href="#cartpage" class="cart-link">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            <span id="cartCounter" class="cart-counter">0</span>
+        </a>
+      </div>
+     
+    </nav>
+
+
+    <style>
+    :root {
+  --bg: linear-gradient(135deg, #0f172a, #020617);
+  --card: rgba(255, 255, 255, 0.08);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --input: rgba(255, 255, 255, 0.12);
+  --primary: #22c55e;
+  --border: rgba(255, 255, 255, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===== Layout ===== */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== Sidebar (NEW STYLE) ===== */
+.sidebar {
+  width: 35%;
+  background: radial-gradient(circle at top, #22c55e33, transparent 60%);
+  padding: 80px 60px;
+  display: flex;
+  align-items: center;
+}
+
+.site-info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+}
+
+.site-info p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 360px;
+}
+
+/* ===== Auth Panel ===== */
+.auth-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar */
+.top-bar {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ===== Card ===== */
+.auth-card {
+  margin: auto;
+  width: 100%;
+  max-width: 430px;
+  padding: 36px;
+  background: var(--card);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+/* Header */
+.auth-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.auth-header p {
+  color: var(--muted);
+}
+
+/* ===== Inputs ===== */
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--input);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  color: var(--text);
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: #9ca3afaa;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(34, 197, 94, 0.12);
+}
+
+/* Validation */
+.input-error {
+  border-color: #ef4444;
+}
+
+.input-success {
+  border-color: #22c55e;
+}
+
+/* Password rules */
+.passRules {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+/* ===== Buttons ===== */
+.btn-primary {
+  margin-top: 10px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 16px;
+  color: #022c22;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(34,197,94,0.35);
+}
+
+/* ===== Switch ===== */
+.switch-auth {
+  margin-top: 26px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.switch-auth span {
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ===== Error message ===== */
+.errorMessege {
+  font-size: 12px;
+  color: #fca5a5;
+  margin-top: 4px;
+  animation: fadeSlide 0.4s ease forwards;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide login by default */
+.login-form {
+  display: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+
+  .auth-card {
+    margin: 40px auto;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+ <div class="container" id="appContainer">
+
+  <!-- LEFT INFO PANEL -->
+  <aside class="sidebar" id="sidebar">
+    <div class="site-info" id="siteInfo">
+      <h1 id="siteTitle">Welcome Back</h1>
+      <p>
+        Create or access your account to manage your dashboard,
+        projects, and personal settings securely.
+      </p>
+    </div>
+  </aside>
+
+  <!-- RIGHT AUTH AREA -->
+  <section class="auth-panel" id="authPanel">
+
+    <!-- TOP CONTROLS -->
+    <div class="top-bar" id="topBar">
+      <label class="label">
+        <div class="toggle">
+          <input
+            class="toggle-state"
+            id="darkMode"
+            type="checkbox"
+            name="check"
+            value="check"
+          />
+          <div class="indicator" id="indicator"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- AUTH CARD -->
+    <div class="auth-card" id="authCard">
+
+      <!-- LOGIN FORM -->
+      <form class="login-form" id="loginForm">
+
+        <header class="auth-header">
+          <h2>Account Login</h2>
+          <p>Please enter your details to continue</p>
+        </header>
+
+        <div class="form-group">
+          <label for="loginEmail">Email address</label>
+          <input
+            id="loginEmail"
+            type="email"
+            placeholder="example@mail.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input
+            id="loginPassword"
+            type="password"
+            placeholder="Enter password"
+          />
+        </div>
+
+        <div class="form-options">
+          <label class="remember">
+            <input id="rememberMe" type="checkbox" />
+            Keep me signed in
+          </label>
+        </div>
+
+        <button class="btn-primary" id="loginBtn" type="button">
+          Login to Dashboard
+        </button>
+
+        <div class="switch-auth">
+          New here?
+          <span id="switchToSignup">Create account</span>
+        </div>
+
+      </form>
+
+      <!-- SIGNUP FORM -->
+      <form class="signup-form" id="signupForm">
+
+        <header class="auth-header">
+          <h2>Create Your Profile</h2>
+          <p>Fill in the information below</p>
+        </header>
+
+        <div class="form-group">
+          <label id="signupNamelabel" for="signupNameinput">Full Name</label>
+          <input
+            id="signupNameinput"
+            type="text"
+            placeholder="Your full name"
+          />
+          <p id="signupNameError" class="errorMessege"></p>
+        </div>
+
+        <div class="form-group">
+          <label id="labelPassword" for="signupPassword">Password</label>
+          <input
+            id="signupPassword"
+            type="password"
+            placeholder="Create a strong password"
+          />
+          <p id="passMessege" class="errorMessege"></p>
+
+          <label id="signuplabelPassword" for="confirmPassword">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            placeholder="Repeat password"
+          />
+          <p id="errorMessege" class="errorMessege"></p>
+
+          <div class="passRules">
+            <p id="characters">√ Minimum 8 characters</p>
+            <p id="uppercase">√ At least one uppercase letter</p>
+            <p id="oneSymbol">√ Include one special symbol</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label id="labelEmail" for="signupEmail">Email Address</label>
+          <input
+            id="signupEmail"
+            type="email"
+            placeholder="you@example.com"
+          />
+          <p id="errorEmail" class="errorMessege"></p>
+        </div>
+
+        <button class="btn-primary" id="signupBtn" type="submit">
+  Create Account
+</button>
+
+
+        <div class="switch-auth">
+          Already registered?
+          <span id="switchToLogin">Login instead</span>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+</div>
+
+
+    <script>
+    let switchToSignup = document.getElementById("switchToSignup")
+    let signupform = document.getElementById('signupForm')
+    let loginform = document.getElementById('loginForm')
+    let switchToLogin = document.getElementById('switchToLogin')
+    let siteTitle = document.getElementById('siteTitle')
+    switchToSignup.addEventListener("click",()=>{
+        
+        loginform.style.display='none'
+        signupform.style.display='block'
+        siteTitle.innerHTML="Create your New Account"
+      
+    })
+    switchToLogin.addEventListener('click',()=>{
+        loginform.style.display='block'
+        signupform.style.display='none'
+      
+        siteTitle.innerHTML="Welcome Back"
+    })
+    const signupForm = document.getElementById("signupForm");
+
+  signupForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // jooji reload
+
+  });
+  </script>
+
+   
+
+    <script src="login.js"></script>
+</body>
+</html>

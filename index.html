@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>ABDULL</title>
     <link rel="stylesheet" href="main.css">
@@ -247,64 +250,47 @@
     </style>
 </head>
 <body>
-    <!-- <header class="header">
-        <div class="header-container">
-            <a href="index.html" class="logo">ABDULL</a>
-            
-            <div class="search-container">
-                <input type="text" class="search-bar bg-white text-black" placeholder="search about everything u want.">
-            </div>
-            <div class="">
-               <a  class="text-2xl" href=""><i class="fa-solid fa-cart-arrow-down"><span id="cartCounter" class="text-sm">0</span></i></a> 
-            </div>
-           
-        </div>
-    </header> -->
-     <header class="header">
-    <div class="header-container">
 
-        <!-- Logo (Left) -->
-        <a href="index.html" class="logo">ABDULL</a>
 
-        <!-- Search (Center) -->
-        <div class="search-container">
+
+<nav class="nav">
+      <div class="nav-container">
+        <a href="index.html" class="logo">𝔸bdul</a>
+
+         <div class="">
             <input
                 type="text"
-                class="search-bar bg-white text-black"
-                placeholder="Search for products, brands and more..."
+                class="w-100 border border:white text-white h-10 rounded-xl label"
+                placeholder="Search for products"
             >
         </div>
 
-        <!-- Cart (Right) -->
-        <a href="#cartpage" class="cart-link">
+
+        
+       <div class="nav-links">
+          <a href="index.html">HOME</a>
+          <a href="about.html">about-me</a>
+          <a href="contacts.html">Contact</a>
+        </div>
+         <a href="#cartpage" class="cart-link">
             <i class="fa-solid fa-cart-arrow-down"></i>
             <span id="cartCounter" class="cart-counter">0</span>
         </a>
-
-    </div>
-</header>
-
-
-     <nav class="nav-menu">
-        <div class="nav-container">
-            <ul class="nav-links">
-               <li><a style="background-color: lightseagreen;" href="index.html">HOME</a></li>
-               <li><a href="products.html">Products</a></li>
-               <li><a href="about.html">About</a></li>
-               <li><a href="contacts.html">Contact</a></li>
-               <!-- <li><a href="reviews.html">Reviews</a></li> -->
-            </ul>
-        </div>
+      </div>
+     
     </nav>
+
+
+    
     <main class="main-content">
 
   <!-- HERO -->
   <div class="hero-banner">
     <h1>ABDULL FASHION</h1>
-    <p>Your ultimate online shopping destination with amazing products and unbeatable prices.</p>
+    <p class="font-semibold">Your ultimate online shopping destination with amazing products and unbeatable prices.</p>
   </div>
 
-  <h2 style="text-align:center; margin-bottom:30px; color:#232f3e;">
+  <h2 style="text-align:center; margin-bottom:30px; color:#232f3e;" class="text-4xl">
     My Top Products
   </h2>
 
@@ -335,7 +321,7 @@
   </div>
   </main>
 
-  <h1 style="text-align:center; margin:40px 0; color:#232f3e;">
+  <h1 style="text-align:center; margin:40px 0; color:#232f3e;" class="text-4xl">
     All Products
   </h1>
 
@@ -398,6 +384,34 @@
       <button class="buy-btn addCart">Add to Cart</button>
     </div>
 
+        <div class="product-card">
+      <img class="product-image " src="Pickle shirt.jpeg" alt="">
+      <div class="product-title">Pickle shirt</div>
+      <div class="product-price">$19.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="Baby cowbow jeans dress.jpeg" alt="">
+      <div class="product-title">Baby cowboy jeans dress</div>
+      <div class="product-price">$31.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="Minhgzhu women.jpeg" alt="">
+      <div class="product-title">Minhgzhu women</div>
+      <div class="product-price">$36.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="Grace kirin women.jpeg" alt="">
+      <div class="product-title">Grace kirin women</div>
+      <div class="product-price">$65.99</div>
+      <button class="buy-btn addCart">Add to Cart</button>
+    </div>
+
   </div>
 
 <div class="cart-welcome">
@@ -413,7 +427,7 @@
 
   
 <section class="cart-section" id="cart-section">
-  <div class="cartpage" id="cartpage">
+  <div class="cartpage rounded-2xl" id="cartpage">
     <div class="carttitle">
       <h2>🛒 Your Cart</h2>
       <button id="closeCart">✖</button>
